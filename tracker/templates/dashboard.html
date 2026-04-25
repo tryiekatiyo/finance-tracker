@@ -1,0 +1,17 @@
+<h1>My Transactions</h1>
+
+<h2>Add Transaction</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add</button>
+</form>
+
+<hr>
+
+{% for t in transactions %}
+    <p>{{ t.amount }} - {{ t.category }} - {{ t.type }}</p>
+{% empty %}
+    <p>No transactions yet</p>
+{% endfor %}
