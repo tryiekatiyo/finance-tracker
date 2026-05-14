@@ -115,23 +115,6 @@
             background:#f5f5f5;
         }
 
-        .action-btn{
-            text-decoration:none;
-            padding:8px 12px;
-            border-radius:6px;
-            color:white;
-            margin:2px;
-            display:inline-block;
-        }
-
-        .edit-btn{
-            background:green;
-        }
-
-        .delete-btn{
-            background:red;
-        }
-
         .logout-btn{
             float:right;
             background:red;
@@ -140,6 +123,19 @@
             border-radius:8px;
             text-decoration:none;
             font-size:14px;
+        }
+
+        .action-link{
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .edit-link{
+            color:green;
+        }
+
+        .delete-link{
+            color:red;
         }
 
     </style>
@@ -161,41 +157,49 @@
 
 <div class="container">
 
+    <!-- Add Transaction -->
+
     <div class="card">
 
         <h2>Add Transaction</h2>
-   <form method="POST">
-        {% csrf_token %}
 
-        {{ form.as_p }}
+        <form method="POST">
+            {% csrf_token %}
 
-        <button type="submit">
-            Add Transaction
-        </button>
-    </form>
+            {{ form.as_p }}
 
-</div>
-
-<div class="card">
-
-    <h2>Add Budget</h2>
-
-    <form method="POST">
-        {% csrf_token %}
-
-        {{ budget_form.as_p }}
-
-        <button type="submit">
-            Save Budget
-        </button>
-    </form>
+            <button type="submit">
+                Add Transaction
+            </button>
+        </form>
 
     </div>
+
+    <!-- Add Budget -->
+
+    <div class="card">
+
+        <h2>Add Budget</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ budget_form.as_p }}
+
+            <button type="submit">
+                Save Budget
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Summary -->
 
     <div class="summary">
 
         <div class="summary-box">
-             <h3>Total Income</h3>
+            <h3>Total Income</h3>
             <p>${{ total_income }}</p>
         </div>
 
@@ -221,18 +225,22 @@
 
     </div>
 
+    <!-- Chart -->
+
     <div class="card">
 
         <h2>Financial Overview</h2>
 
-    <p>
-        This chart compares expenses, budgets,
-        and remaining balance.
-    </p>
+        <p>
+            This chart compares expenses, budgets,
+            and remaining balance.
+        </p>
 
-    <canvas id="financeChart"></canvas>
+        <canvas id="financeChart"></canvas>
 
     </div>
+
+    <!-- Transactions -->
 
     <div class="card">
 
@@ -249,53 +257,40 @@
             </tr>
 
             {% for transaction in transactions %}
-{% for transaction in transactions %}
-<tr>
-    <td>${{ transaction.amount }}</td>
-    <td>{{ transaction.category }}</td>
-    <td>{{ transaction.type }}</td>
-    <td>{{ transaction.date }}</td>
 
-    <td>
+            <tr>
 
-        <a href="{% url 'edit_transaction' transaction.id %}"
-           class="action-btn edit-btn">
-            Edit
-        </a>
+                <td>${{ transaction.amount }}</td>
+                <td>{{ transaction.category }}</td>
+                <td>{{ transaction.type }}</td>
+                <td>{{ transaction.date }}</td>
 
-        <a href="{% url 'delete_transaction' transaction.id %}"
-           class="action-btn delete-btn"
-           onclick="return confirm('Are you sure you want to delete this transaction?')">
-            Delete
-        </a>
-
-    </td>
-
-</tr>
-{% empty %}
-
-<tr>
-    <td colspan="5">
-        No transactions added yet.
-    </td>
-</tr>
-
-{% endif %}
+                <td>
 
                     <a href="{% url 'edit_transaction' transaction.id %}"
-                       class="action-btn edit-btn">
+                       class="action-link edit-link">
                         Edit
                     </a>
 
+                    |
+
                     <a href="{% url 'delete_transaction' transaction.id %}"
-                        class="action-btn delete-btn"
-                         onclick="return confirm('Are you sure you want to delete this transaction?')">
+                       class="action-link delete-link">
                         Delete
                     </a>
 
                 </td>
 
             </tr>
+
+            {% empty %}
+
+            <tr>
+                <td colspan="5">
+                    No transactions available.
+                </td>
+            </tr>
+
             {% endfor %}
 
         </table>
@@ -305,7 +300,8 @@
 </div>
 
 <script>
- const expenses = Number("{{ total_expenses|default:0 }}");
+
+    const expenses = Number("{{ total_expenses|default:0 }}");
     const budget = Number("{{ budget_total|default:0 }}");
     const remaining = Number("{{ remaining|default:0 }}");
 
@@ -326,6 +322,7 @@
     });
 
 </script>
+
 <footer style="
     background:#1e3a8a;
     color:white;
@@ -335,5 +332,6 @@
 ">
     Personal Finance Tracker System © 2026
 </footer>
+
 </body>
 </html>
