@@ -10,6 +10,10 @@ Finance Tracker is a project developed to help users monitor and manage their fi
 * To provide a simple way of recording income and expenses.
 * To encourage better financial management.
 
+🎯 Project Objective
+
+The main objective of this project is to simplify personal financial management by providing a platform where users can record, monitor and analyse their income and expenses.To 
+
 ✨ Key Features
 
 * Income Tracking: Record and monitor income.
@@ -20,9 +24,7 @@ Finance Tracker is a project developed to help users monitor and manage their fi
 * Expense Categorisation: Organise expenses into different categories.
 * Transaction History: View previously recorded financial transactions.
 
-🎯 Project Objective
 
-The main objective of this project is to simplify personal financial management by providing a platform where users can record, monitor and analyse their income and expenses.To 
 🛠️ Technologies Used
 
 * Python – Main programming language.
