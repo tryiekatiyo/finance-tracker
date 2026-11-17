@@ -9,6 +9,7 @@ Finance Tracker is a project developed to help users monitor and manage their fi
 * To help users monitor their financial activities.
 * To provide a simple way of recording income and expenses.
 * To encourage better financial management.
+
 ✨ Key Features
 
 * Income Tracking: Record and monitor income.
