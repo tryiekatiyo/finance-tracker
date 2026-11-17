@@ -18,7 +18,11 @@ Finance Tracker is a project developed to help users monitor and manage their fi
 * HTML – Structure of the web pages.
 * CSS – Styling and layout.
 * Chart.js – Data visualisation and charts.
-
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=white)
 📚 What I Learned
 
 Through this project, I gained practical experience in software development, problem-solving and applying programming concepts to develop a practical solution.
